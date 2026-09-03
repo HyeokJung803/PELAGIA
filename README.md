@@ -6,6 +6,7 @@
 
 빛이 닿지 않는 세계를 배경으로, 잠수정 탐험 코스와 수심별 생태계, NEREID X1 잠수정, 예약 시뮬레이션을 하나의 스크롤 서사로 구성했습니다.
 
+배포주소: https://pelagia-lilac.vercel.app/
 **Tech**\
 `React` `TypeScript` `Vite` `Tailwind CSS` `shadcn/ui` `Motion` `Lucide React`
 
