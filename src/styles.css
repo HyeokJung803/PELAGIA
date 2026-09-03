@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif;
+  color: #edf9ff;
+  background: #020a12;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background: #020a12;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.7;
+  word-break: keep-all;
+  background: #020a12;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.23;
+  word-break: keep-all;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+input,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid #5eead4;
+  outline-offset: 4px;
+}
+
+::selection {
+  color: #00151c;
+  background: #67e8f9;
+}
+
+.font-pelagia {
+  font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif;
+}
+
+.font-mono {
+  font-family: "Pretendard Variable", Pretendard, "Noto Sans KR", sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.noise {
+  position: relative;
+}
+
+.noise::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.water-rays {
+  background-image:
+    linear-gradient(104deg, transparent 23%, rgb(109 220 255 / 0.1) 31%, transparent 39%),
+    linear-gradient(78deg, transparent 54%, rgb(87 187 255 / 0.06) 61%, transparent 68%);
+  filter: blur(3px);
+  transform-origin: top center;
+  animation: drift-rays 14s ease-in-out infinite alternate;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -3rem;
+  width: var(--size);
+  height: var(--size);
+  left: var(--left);
+  border: 1px solid rgb(197 242 255 / 0.42);
+  border-radius: 999px;
+  box-shadow: inset 1px 1px 2px rgb(255 255 255 / 0.2);
+  opacity: 0;
+  animation: bubble-rise var(--duration) linear var(--delay) infinite;
+}
+
+.technical-grid {
+  background-image:
+    linear-gradient(rgb(91 216 255 / 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(91 216 255 / 0.055) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: #78e7f7;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.section-label::before {
+  width: 2.25rem;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  opacity: 0.8;
+}
+
+input[type="range"] {
+  accent-color: #4de5e8;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) opacity(0.75);
+}
+
+@keyframes bubble-rise {
+  0% { transform: translate3d(0, 0, 0) scale(0.7); opacity: 0; }
+  12% { opacity: 0.52; }
+  88% { opacity: 0.16; }
+  100% { transform: translate3d(var(--drift), -110vh, 0) scale(1.15); opacity: 0; }
+}
+
+@keyframes drift-rays {
+  from { transform: skewX(-4deg) scaleX(0.95); opacity: 0.55; }
+  to { transform: skewX(4deg) scaleX(1.08); opacity: 0.9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
